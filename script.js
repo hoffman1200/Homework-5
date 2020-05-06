@@ -20,7 +20,14 @@ var hourSpan;
 var hourString = $(".hour").text().split(" ");
 
 // Date and Hour
-$("#currentDay").text(currentDate + " " + currentHour);
+
+var interval = setInterval(function() {
+  var momentNow = moment();
+  $('#currentDay').html(momentNow.format('YYYY MMMM DD') + ' '
+                      + momentNow.format('dddd')
+                       .substring(0,3).toUpperCase());
+  $('#currentDay').html(currentDate + " " + momentNow.format('hh:mm:ss A'));
+}, 100);
 
 function initPage() {
 
@@ -84,7 +91,8 @@ function background () {
 }
 
 
-// Function background trying .each
+// Function background trying forEach
+
 // function background() {
 //   hourString.forEach(span => {
 //     var tryForeach = parseInt(span);
@@ -106,7 +114,7 @@ function background () {
 
 
 // function background () {
-//   for (i = 0; i < hourString.length; i++) {
+//   for (var i = 0; i < hourString.length; i++) {
 //     if (i === 11) {break;}
 //     var element = hourString[i];
 //     element = parseInt(element);
@@ -137,7 +145,7 @@ $(document).ready(function(){
     localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
   })
-
+  // Button for clear the day
   $("#clearDay").on("click", function(){
     localStorage.clear();
     initPage()
