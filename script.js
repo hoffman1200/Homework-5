@@ -17,7 +17,7 @@ var sevenPm = $("#19pm");
 var hour = moment().hours();
 var userInput;
 var hourSpan;
-var hourString = $(".hour").text().split(" ");
+// var hourString = $(".hour").text().split(" ");
 
 // Date and Hour
 
@@ -75,63 +75,15 @@ function background () {
       console.log(hour);
 //      console.log(this);
       if (hour > timeTest) {
-          $(this).removeClass("future");
-          $(this).removeClass("present");
           $(this).addClass("past");
       } else if (hour < timeTest) {
-          $(this).removeClass("present");
-          $(this).removeClass("past");
           $(this).addClass("future");
       } else {
-          $(this).removeClass("future");
-          $(this).removeClass("past");
           $(this).addClass("present");
       }
   });
 }
 
-
-// Function background trying forEach
-
-// function background() {
-//   hourString.forEach(span => {
-//     var tryForeach = parseInt(span);
-//     console.log(tryForeach);
-//     hour = parseInt(hour);
-
-//     $(".form-control").each(function () {
-//       if (hour > tryForeach) {
-
-//       } else if (hour < tryForeach) {
-
-//       } else {
-
-//       }
-//   });
-//   })
-
-// }
-
-
-// function background () {
-//   for (var i = 0; i < hourString.length; i++) {
-//     if (i === 11) {break;}
-//     var element = hourString[i];
-//     element = parseInt(element);
-//     hour = (parseInt(hour));
-//     console.log(hour);
-//     console.log(parseInt(element));
-
-//     if (hour > element) {
-//       console.log("mayor que");
-//     } else if(hour < element) {
-//       console.log("menor que");
-//     } else {
-//       console.log("igual");
-//     }
-//   }
-  
-// }
 $(document).ready(function(){
   initPage()
   background()
